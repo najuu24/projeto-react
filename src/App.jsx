@@ -1,28 +1,38 @@
+import { useState } from "react"
 
 function App() {
+  // useState(0): comando do react que monitora a variável para quando ela precisa ser renderizada/atualizada
+
+
+
+  let [cliques, setCliques] = useState(0)
+  let [meuNome, setNome] = useState("Aguardando...")
+  
+  
 
   let nome = "Naju"
   let sobrenome = "Vieira"
-  let nome_completo = nome + " " + sobrenome
+  // let nome_completo = nome + " " + sobrenome
 
-  let cliques = 0 // comando do react que monitora a variável para quando ela precisa ser renderizada/atualizada
-  // cliques += useState(0)
 
-  function aumentarClique(){
-    cliques += 1
-    
-  }
+  // function aumentarClique(){
+  //   setCliques(cliques + 1)
+  // }
 
   return (
     <div>
       <h1>Olá mundo!</h1>
       <p>Estou aprendendo React C:</p>
-      <p>Meu nome é {nome_completo}.</p>
+      <p>Meu nome é: {meuNome}</p>
+      <button onClick={ () => setNome(nome)}>Carregar nome</button>
 
-      <hr />
+      <br />
+      <br />
 
       <p>Você clicou {cliques} vezes.</p>
-      <button onClick={aumentarClique}>Clique aqui!</button>
+      <button onClick={ () => setCliques(cliques + 1)}>Clique aqui!</button>
+
+      <hr />
 
     </div>
   )
